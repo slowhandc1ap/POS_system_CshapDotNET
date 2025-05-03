@@ -1,0 +1,39 @@
+﻿@model ERP_BurgerKorn.Models.Customer
+
+@{
+	ViewData["Title"] = "Customer Details";
+
+}
+
+<div class="container my-5">
+	<div class="row justify-content-center">
+		<div class="card shadow-sm border-0">
+		<div class="card-header bg-primary text-white">
+			<h2 class="mb-0">Customer Details</h2>
+		</div>
+		<div class="card-body">
+			<dl class="row mb-0">
+				<dt class="col-sm-4 fw-bold">Customer Name</dt>
+				<dd class="col-sm-8">@Model.Name</dd>
+
+				<dt class="col-sm-4 fw-bold">Customer Email</dt>
+				<dd class="col-sm-8">@Model.Email</dd>
+
+				<dt class="col-sm-4 fw-bold">Phone Number</dt>
+				<dd class="col-sm-8">@Model.PhoneNumber</dd>
+
+				<dt class="col-sm-4 fw-bold">Address</dt>
+				<dd class="col-sm-8">@Model.Address</dd>
+
+				<dt class="col-sm-4 fw-bold">Create At</dt>
+				<dd class="col-sm-8">@Model.CreatedAt</dd>
+			</dl>
+		</div>
+		<div class="card-footer bg-light">
+			<a asp-action="Index" class="btn btn-outline-secondary">Back to list</a>
+			<a asp-action="Edit" asp-route-id="@Model.CustomerId" class="btn btn-primary">Edit</a>
+
+		</div>
+	</div>
+	</div>
+</div>

@@ -32,6 +32,15 @@ namespace ERP_BurgerKorn.Controllers
             }
         }
 
+        public IActionResult Details(int id)
+        {
+            var product = _context.Customers.FirstOrDefault(p => p.CustomerId == id);
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+
+
         // Create: Display the form to create a new customer
         public IActionResult Create()
         {
