@@ -1,0 +1,28 @@
+﻿@model ERP_BurgerKorn.Models.Product
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h2 class="text-danger">Confirm Deleting</h2>
+
+<hr />
+<div class="alert alert-warning">
+    <h4>Please Confirm to Delete Product ?</h4>
+    <dl class="row mt-3">
+        <dt class="col-sm-3">Product name</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9">@Model.Price บาท</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <button type="submit" class="btn btn-danger">ลบ</button>
+    <a asp-action="Index" class="btn btn-secondary">ยกเลิก</a>
+</form>

@@ -1,0 +1,121 @@
+﻿
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "POS Dashboard";
+}
+
+<div class="container-fluid">
+    <div class="text-center mb-4">
+        <h1 class="display-4">POS System Dashboard</h1>
+        <p class="lead">Welcome to your point of sale management system</p>
+    </div>
+
+    <!-- Modules -->
+    <div class="row ">
+        <div class="col-md-4 mb-4 ">
+            <div class="card h-100 bg-primary text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-cash-register fa-4x mb-3"></i>
+                    <h3 class="card-title">Sales</h3>
+                    <p class="card-text">Process transactions and manage orders</p>
+                    <a href="/Sales" class="btn btn-light">Enter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-success text-white text-center border border-danger">
+                <div class="card-body">
+                    <i class="fas fa-boxes fa-4x mb-3"></i>
+                    <h3 class="card-title">Products</h3>
+                    <p class="card-text">Manage inventory and product catalog</p>
+                    <a href="/Products" class="btn btn-light">Enter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-info text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-users fa-4x mb-3"></i>
+                    <h3 class="card-title">Customers</h3>
+                    <p class="card-text">Manage customer database and loyalty</p>
+                    <a href="/Customer" class="btn btn-light">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-warning text-dark text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-bar fa-4x mb-3"></i>
+                    <h3 class="card-title">Reports</h3>
+                    <p class="card-text">View sales analytics and reports</p>
+                    <a href="/Reports" class="btn btn-dark">Enter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-danger text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-file-invoice-dollar fa-4x mb-3"></i>
+                    <h3 class="card-title">Balance Sheet</h3>
+                    <p class="card-text">View financial statements</p>
+                    <a href="/BalanceSheet" class="btn btn-light">Enter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-secondary text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-cog fa-4x mb-3"></i>
+                    <h3 class="card-title">Settings</h3>
+                    <p class="card-text">System configuration and preferences</p>
+                    <a href="/Settings" class="btn btn-light">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Today's Sales</h5>
+                    <p class="h3 text-success">@Model.TotalSalesToday.ToString("C")</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">New Orders</h5>
+                    <p class="h3 text-primary">@Model.TotalOrdersToday</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a href="/Products" style="text-decoration: none; color: inherit;">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Low Stock</h5>
+                    <p class="h3 text-warning">@Model.LowStockCount items</p>
+                </div>
+            </div>
+           </a>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">New Customers</h5>
+                    <p class="h3 text-info">@Model.NewCustomersToday</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

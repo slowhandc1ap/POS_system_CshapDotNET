@@ -1,0 +1,47 @@
+﻿@model ERP_BurgerKorn.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Card for Product Details -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Product Details</h2>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 fw-bold">Product Name</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4 fw-bold">Price</dt>
+                        <dd class="col-sm-8">@Model.Price.ToString("C", new System.Globalization.CultureInfo("th-TH"))</dd>
+
+                        <dt class="col-sm-4 fw-bold">SKU Code</dt>
+                        <dd class="col-sm-8">@Model.SKU</dd>
+
+                        <dt class="col-sm-4 fw-bold">Stock Quantity</dt>
+                        <dd class="col-sm-8">@Model.StockQuantity</dd>
+
+                        <dt class="col-sm-4 fw-bold">Supplier</dt>
+                        <dd class="col-sm-8">@(Model.Supplier?.Name ?? "N/A")</dd>
+
+                        <dt class="col-sm-4 fw-bold">Description</dt>
+                        <dd class="col-sm-8">@(string.IsNullOrEmpty(Model.Description) ? "No description available" : Model.Description)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer bg-light">
+                    <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+                    <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Optional: Add any custom scripts here if needed -->
+}
